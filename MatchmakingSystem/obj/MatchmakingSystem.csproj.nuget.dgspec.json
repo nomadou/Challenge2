@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Project\\P_Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj": {}
+    "D:\\Test_Project\\Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Project\\P_Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj": {
+    "D:\\Test_Project\\Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Project\\P_Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj",
+        "projectUniqueName": "D:\\Test_Project\\Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj",
         "projectName": "MatchmakingSystem",
-        "projectPath": "C:\\Project\\P_Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj",
-        "packagesPath": "C:\\Users\\lllo_\\.nuget\\packages\\",
-        "outputPath": "C:\\Project\\P_Waterball\\Challenge2\\MatchmakingSystem\\obj\\",
+        "projectPath": "D:\\Test_Project\\Waterball\\Challenge2\\MatchmakingSystem\\MatchmakingSystem.csproj",
+        "packagesPath": "C:\\Users\\p10423782\\.nuget\\packages\\",
+        "outputPath": "D:\\Test_Project\\Waterball\\Challenge2\\MatchmakingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lllo_\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\p10423782\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gallery.uipath.com/api/v2": {}
         },
         "frameworks": {
           "net10.0": {
@@ -59,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
