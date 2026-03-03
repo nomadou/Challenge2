@@ -1,0 +1,15 @@
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\bin\Debug\net10.0\MatchmakingSystem.exe
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\bin\Debug\net10.0\MatchmakingSystem.deps.json
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\bin\Debug\net10.0\MatchmakingSystem.runtimeconfig.json
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\bin\Debug\net10.0\MatchmakingSystem.dll
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\bin\Debug\net10.0\MatchmakingSystem.pdb
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.AssemblyInfoInputs.cache
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.AssemblyInfo.cs
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.csproj.CoreCompileInputs.cache
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.sourcelink.json
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.dll
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\refint\MatchmakingSystem.dll
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.pdb
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.genruntimeconfig.cache
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\ref\MatchmakingSystem.dll
