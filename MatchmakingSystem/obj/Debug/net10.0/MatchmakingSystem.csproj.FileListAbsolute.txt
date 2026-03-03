@@ -13,3 +13,4 @@ C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\refint\Mat
 C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.pdb
 C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\MatchmakingSystem.genruntimeconfig.cache
 C:\Project\P_Waterball\Challenge2\MatchmakingSystem\obj\Debug\net10.0\ref\MatchmakingSystem.dll
+C:\Project\P_Waterball\Challenge2\MatchmakingSystem\bin\Debug\net10.0\data.csv

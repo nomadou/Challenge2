@@ -9,7 +9,12 @@ namespace MatchmakingSystem;
 
 static class Program
 {
-    private const string DataFile = "data.csv";
+    // the data file is expected to live alongside the executable.  we compute
+    // an absolute path so that the current working directory doesn’t matter –
+    // this prevents confusion when the user runs the program from a different
+    // folder (e.g. by double‑clicking the exe).
+    private static readonly string DataFile =
+        Path.Combine(AppContext.BaseDirectory, "data.csv");
 
     static void Main()
     {
@@ -57,7 +62,11 @@ static class Program
     private static List<Individual> LoadData()
     {
         var list = new List<Individual>();
-        if (!File.Exists(DataFile)) return list;
+        if (!File.Exists(DataFile))
+        {
+            Console.WriteLine($"data file not found: {DataFile}");
+            return list;
+        }
 
         using var reader = new StreamReader(DataFile);
         string? header = reader.ReadLine(); // ignore header
