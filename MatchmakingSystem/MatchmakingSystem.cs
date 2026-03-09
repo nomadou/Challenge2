@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MatchmakingSystem;
 
@@ -43,5 +44,34 @@ public class MatchmakingSystem
                 result[p.Id] = mate.Id;
         }
         return result;
+    }
+
+    /// <summary>
+    /// 從指定的CSV檔案載入個體列表。
+    /// </summary>
+    public static List<Individual> LoadIndividualsFromCsv(string filePath)
+    {
+        var list = new List<Individual>();
+        if (!File.Exists(filePath))
+        {
+            return list;
+        }
+
+        using var reader = new StreamReader(filePath);
+        string? header = reader.ReadLine(); // ignore header
+        while (true)
+        {
+            var line = reader.ReadLine();
+            if (line == null) break;
+            try
+            {
+                list.Add(Individual.FromCsv(line));
+            }
+            catch (Exception)
+            {
+                // 忽略解析錯誤的行
+            }
+        }
+        return list;
     }
 }

@@ -14,7 +14,7 @@ static class Program
 
     static void Main()
     {
-        var people = LoadData();
+        var people = MatchmakingSystem.LoadIndividualsFromCsv(DataFile);
         if (people.Count == 0)
         {
             Console.WriteLine("no data");
@@ -52,43 +52,6 @@ static class Program
         Console.WriteLine("Habit‑based (least shared via reverse):");
         DumpMatch(sys, user, people);
 
-    }
-
-    private static List<Individual> LoadData()
-    {
-        var list = new List<Individual>();
-        if (!File.Exists(DataFile))
-        {
-            Console.WriteLine($"data file not found: {DataFile}");
-            return list;
-        }
-
-        using var reader = new StreamReader(DataFile);
-        string? header = reader.ReadLine(); // ignore header
-        while (true)
-        {
-            var line = reader.ReadLine();
-            if (line == null) break;
-            try
-            {
-                list.Add(Individual.FromCsv(line));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"failed to parse line: {ex.Message}");
-            }
-        }
-        return list;
-    }
-
-    private static void DumpMatches(MatchmakingSystem sys, List<Individual> people, int take)
-    {
-        foreach (var p in people.Take(take))
-        {
-            var mate = sys.Match(p, people);
-            Console.WriteLine($"{p} -> {mate}");
-        }
-        Console.WriteLine();
     }
 
     private static void DumpMatch(MatchmakingSystem sys, Individual user, List<Individual> people)
