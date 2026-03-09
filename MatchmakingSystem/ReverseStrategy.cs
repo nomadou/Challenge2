@@ -3,11 +3,7 @@ using System;
 namespace MatchmakingSystem;
 
 /// <summary>
-/// Decorator that inverts the desirability of another strategy.  Because each
-/// concrete strategy simply produces a numeric score, negating that score
-/// makes the best‑candidate become the worst and vice‑versa.  There is no
-/// boolean flag—clients explicitly compose a reverse strategy when they need
-/// it, e.g. <c>new ReverseStrategy(new DistanceBasedStrategy())</c>.
+/// 裝飾器，用於反轉另一個策略的理想性。由於每個具體策略僅產生數值分數，取負數使最佳候選者成為最差，反之亦然。沒有布林旗標 – 客戶端在需要時明確組合反轉策略，例如 <c>new ReverseStrategy(new DistanceBasedStrategy())</c>。
 /// </summary>
 public class ReverseStrategy : IMatchmakingStrategy
 {
@@ -20,8 +16,7 @@ public class ReverseStrategy : IMatchmakingStrategy
 
     public double Score(Individual self, Individual candidate)
     {
-        // simply flip the sign of whatever the wrapped strategy would return
-        // (zero stays zero, equal scores remain equal).
+        // 簡單地翻轉包裝策略將返回的符號（零保持零，相等分數保持相等）。
         return -_inner.Score(self, candidate);
     }
 }

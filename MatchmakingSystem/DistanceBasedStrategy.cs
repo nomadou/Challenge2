@@ -3,11 +3,7 @@ using System;
 namespace MatchmakingSystem;
 
 /// <summary>
-/// Scores candidates according to their Euclidean distance from the requester.
-/// Closer individuals receive a higher score (negative of squared distance),
-/// which makes the extension method pick the nearest person.  This class has
-/// no knowledge of "reverse" concept – reversal is handled by composing with
-/// <see cref="ReverseStrategy"/>.
+/// 根據候選者與請求者的歐幾里得距離評分。更近的個體獲得更高的分數（平方距離的負數），這使得擴展方法選擇最近的人。此類別沒有“反轉”概念的知識 – 反轉通過與 <see cref="ReverseStrategy"/> 組合處理。
 /// </summary>
 public class DistanceBasedStrategy : IMatchmakingStrategy
 {
@@ -16,8 +12,7 @@ public class DistanceBasedStrategy : IMatchmakingStrategy
         if (self == null) throw new ArgumentNullException(nameof(self));
         if (candidate == null) throw new ArgumentNullException(nameof(candidate));
 
-        // squared distance avoids unnecessary sqrt; since only relative order
-        // matters we can negate to make closer => larger score.
+        // 平方距離避免不必要的sqrt；因為只有相對順序重要，我們可以取負數使更近 => 更高分數。
         long dx = self.X - candidate.X;
         long dy = self.Y - candidate.Y;
         double squared = dx * dx + dy * dy;

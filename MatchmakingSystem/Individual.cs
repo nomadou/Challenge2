@@ -6,8 +6,7 @@ namespace MatchmakingSystem;
 
 public class Individual
 {
-    // all fields are backed by read‑only auto properties; they are public so
-    // strategy implementations can easily inspect them.
+    // 所有欄位都由唯讀自動屬性支援；它們是公有的，以便策略實現可以輕鬆檢查它們。
     public int Id { get; }
     public string Gender { get; }
     public int Age { get; }
@@ -36,9 +35,7 @@ public class Individual
     }
 
     /// <summary>
-    /// Convenience factory that parses a line from the provided CSV file.
-    /// The habits column may be separated by either commas or semicolons; the
-    /// parser normalizes them to a list of strings.
+    /// 便利工廠，用於解析提供的CSV檔案中的一行。習慣欄位可能由逗號或分號分隔；解析器將它們標準化為字串列表。
     /// </summary>
     public static Individual FromCsv(string csvLine)
     {

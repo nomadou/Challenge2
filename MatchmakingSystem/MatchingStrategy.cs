@@ -3,17 +3,12 @@ using System.Collections.Generic;
 
 namespace MatchmakingSystem;
 
-// strategy pattern: encapsulate the scoring logic so that the system can be
-// configured with any algorithm.  each concrete implementation returns a
-// numeric score for a candidate; higher means "better".  a small helper
-// (extension method) performs the common traversal and tie-breaking.
+// 策略模式：封裝評分邏輯，以便系統可以使用任何演算法配置。每個具體實現為候選者返回一個數值分數；越高意味著“更好”。一個小的助手（擴展方法）執行常見的遍歷和決勝負。
 
 public interface IMatchmakingStrategy
 {
     /// <summary>
-    /// Returns a score for <paramref name="candidate"/> when matching from
-    /// <paramref name="self"/>.  The matchmaking helper treats larger values
-    /// as more desirable, breaking ties by smaller ID.
+    /// 當從 <paramref name="self"/> 匹配時，為 <paramref name="candidate"/> 返回分數。配對助手將較大的值視為更理想，並通過較小的ID打破平局。
     /// </summary>
     double Score(Individual self, Individual candidate);
 }

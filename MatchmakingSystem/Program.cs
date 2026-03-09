@@ -4,15 +4,11 @@ using System.IO;
 
 namespace MatchmakingSystem;
 
-// simple demo: read the built‑in data.csv and run a few strategies so that the
-// behaviour can be inspected when executing the program.
+// 簡單演示：讀取內建的data.csv並運行幾個策略，以便在執行程式時檢查行為。
 
 static class Program
 {
-    // the data file is expected to live alongside the executable.  we compute
-    // an absolute path so that the current working directory doesn’t matter –
-    // this prevents confusion when the user runs the program from a different
-    // folder (e.g. by double‑clicking the exe).
+    // 資料檔案預期與可執行檔案並存。我們計算絕對路徑，以便當前工作目錄無關緊要 – 這可以防止使用者從不同資料夾運行程式時的混亂（例如，雙擊exe）。
     private static readonly string DataFile =
         Path.Combine(AppContext.BaseDirectory, "data.csv");
 
@@ -25,8 +21,7 @@ static class Program
             return;
         }
 
-        // the user is expected to be one of the entries in the CSV.  prompt for
-        // an ID and only compute a match for that specific individual.
+        // 使用者預期是CSV中的一個條目。提示輸入ID，並僅為該特定個體計算匹配。
         Console.Write("Enter ID to match: ");
         if (!int.TryParse(Console.ReadLine(), out int id))
         {

@@ -4,10 +4,7 @@ using System.Collections.Generic;
 namespace MatchmakingSystem;
 
 /// <summary>
-/// Client‑visible class.  It holds a reference to an <see cref="IMatchmakingStrategy"/>
-/// and delegates the actual choice of partner to that strategy.  Because the
-/// strategy is injected, callers can swap it at runtime or supply a reversed
-/// version without modifying this class.
+/// 面向客戶端的類別。它持有對 <see cref="IMatchmakingStrategy"/> 的引用，並將實際的夥伴選擇委派給該策略。由於策略是注入的，調用者可以在運行時交換它或提供反轉版本，而無需修改此類別。
 /// </summary>
 public class MatchmakingSystem
 {
@@ -25,15 +22,13 @@ public class MatchmakingSystem
     }
 
     /// <summary>
-    /// Match a single individual against the supplied pool (which may include
-    /// the individual; the implementation ignores self during evaluation).
+    /// 將單個個體與提供的池匹配（可能包括該個體；實現會在評估期間忽略自己）。
     /// </summary>
     public Individual? Match(Individual someone, IEnumerable<Individual> pool)
         => _strategy.Match(someone, pool);
 
     /// <summary>
-    /// Convenience helper that computes a dictionary mapping each person to their
-    /// chosen partner.  For simplicity the returned map uses IDs.
+    /// 便利助手，計算將每個人都映射到其選擇的夥伴的字典。為了簡單起見，返回的映射使用ID。
     /// </summary>
     public IDictionary<int, int> MatchAll(IEnumerable<Individual> people)
     {
