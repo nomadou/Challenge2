@@ -14,12 +14,14 @@ static class Program
 
     static void Main()
     {
-        var people = MatchmakingSystem.LoadIndividualsFromCsv(DataFile);
-        if (people.Count == 0)
+        /*
+        var candidates = MatchmakingSystem.LoadIndividualsFromCsv(DataFile);
+        if (candidates.Count == 0)
         {
             Console.WriteLine("no data");
             return;
         }
+        */
 
         // 使用者預期是CSV中的一個條目。提示輸入ID，並僅為該特定個體計算匹配。
         Console.Write("Enter ID to match: ");
@@ -29,34 +31,34 @@ static class Program
             return;
         }
 
-        var user = people.Find(p => p.Id == id);
+        var user = candidates.Find(p => p.Id == id);
         if (user == null)
         {
             Console.WriteLine($"no individual with ID {id}");
             return;
         }
 
-        var sys = new MatchmakingSystem(new DistanceBasedStrategy());
+        var sys = new MatchmakingSystem(DataFile, new DistanceBasedStrategy());
         Console.WriteLine("Distance‑based (closest):");
-        DumpMatch(sys, user, people);
+        DumpMatch(sys, user, candidates);
 
         sys.Strategy = new ReverseStrategy(new DistanceBasedStrategy());
         Console.WriteLine("Distance‑based (farthest via reverse):");
-        DumpMatch(sys, user, people);
+        DumpMatch(sys, user, candidates);
 
         sys.Strategy = new HabitBasedStrategy();
         Console.WriteLine("Habit‑based (most shared interests):");
-        DumpMatch(sys, user, people);
+        DumpMatch(sys, user, candidates);
 
         sys.Strategy = new ReverseStrategy(new HabitBasedStrategy());
         Console.WriteLine("Habit‑based (least shared via reverse):");
-        DumpMatch(sys, user, people);
+        DumpMatch(sys, user, candidates);
 
     }
 
-    private static void DumpMatch(MatchmakingSystem sys, Individual user, List<Individual> people)
+    private static void DumpMatch(MatchmakingSystem sys, Individual user, List<Individual> candidates)
     {
-        var mate = sys.Match(user, people);
+        var mate = sys.Match(user, candidates);
         Console.WriteLine($"{user} -> {mate}");
         Console.WriteLine();
     }

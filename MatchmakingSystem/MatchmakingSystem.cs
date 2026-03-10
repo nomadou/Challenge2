@@ -9,10 +9,12 @@ namespace MatchmakingSystem;
 /// </summary>
 public class MatchmakingSystem
 {
+    private readonly List<Individual> _candidates;
     private IMatchmakingStrategy _strategy;
 
-    public MatchmakingSystem(IMatchmakingStrategy strategy)
+    public MatchmakingSystem(string csvPath, IMatchmakingStrategy strategy)
     {
+        _candidates = LoadIndividualsFromCsv(csvPath);
         _strategy = strategy ?? throw new ArgumentNullException(nameof(strategy));
     }
 
