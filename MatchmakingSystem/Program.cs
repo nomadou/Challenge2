@@ -14,14 +14,11 @@ static class Program
 
     static void Main()
     {
-        /*
-        var candidates = MatchmakingSystem.LoadIndividualsFromCsv(DataFile);
-        if (candidates.Count == 0)
+        var sys = new MatchmakingSystem(DataFile);
+        if (sys.IsEmpty)
         {
-            Console.WriteLine("no data");
             return;
         }
-        */
 
         // 使用者預期是CSV中的一個條目。提示輸入ID，並僅為該特定個體計算匹配。
         Console.Write("Enter ID to match: ");
@@ -31,35 +28,38 @@ static class Program
             return;
         }
 
-        var user = candidates.Find(p => p.Id == id);
+        var user = sys.FindById(id);
         if (user == null)
         {
             Console.WriteLine($"no individual with ID {id}");
             return;
         }
 
-        var sys = new MatchmakingSystem(DataFile, new DistanceBasedStrategy());
-        Console.WriteLine("Distance‑based (closest):");
-        DumpMatch(sys, user, candidates);
-
-        sys.Strategy = new ReverseStrategy(new DistanceBasedStrategy());
-        Console.WriteLine("Distance‑based (farthest via reverse):");
-        DumpMatch(sys, user, candidates);
-
-        sys.Strategy = new HabitBasedStrategy();
-        Console.WriteLine("Habit‑based (most shared interests):");
-        DumpMatch(sys, user, candidates);
-
-        sys.Strategy = new ReverseStrategy(new HabitBasedStrategy());
-        Console.WriteLine("Habit‑based (least shared via reverse):");
-        DumpMatch(sys, user, candidates);
-
-    }
-
-    private static void DumpMatch(MatchmakingSystem sys, Individual user, List<Individual> candidates)
-    {
-        var mate = sys.Match(user, candidates);
-        Console.WriteLine($"{user} -> {mate}");
+        sys.SetStrategy(new DistanceBasedStrategy());
+        Console.WriteLine("Distance-based (closest):");
+        var mate1 = sys.Match(user);
+        Console.WriteLine($"{user} -> {mate1}");
         Console.WriteLine();
+
+        sys.SetStrategy(new ReverseStrategy(new DistanceBasedStrategy()));
+        Console.WriteLine("Distance-based & Reverse (farthest):");
+        var mate2 = sys.Match(user);
+        Console.WriteLine($"{user} -> {mate2}");
+        Console.WriteLine();
+
+        sys.SetStrategy(new HabitBasedStrategy());
+        Console.WriteLine("Habit-based (most shared interests)");
+        var mate3 = sys.Match(user);
+        Console.WriteLine($"{user} -> {mate3}");
+        Console.WriteLine($"[{string.Join(", ", user.Habits)}] -> [{string.Join(", ", mate3.Habits)}]");
+        Console.WriteLine();
+
+        sys.SetStrategy(new ReverseStrategy(new HabitBasedStrategy()));
+        Console.WriteLine("Habit-based & Reverse (least shared via reverse)");
+        var mate4 = sys.Match(user);
+        Console.WriteLine($"{user} -> {mate4}");
+        Console.WriteLine($"[{string.Join(", ", user.Habits)}] -> [{string.Join(", ", mate4.Habits)}]");
+        Console.WriteLine();
+
     }
 }
